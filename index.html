@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Peixoto - Controle de Produção</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>
+<i class="fa-solid fa-truck"></i>
+Peixoto - Controle de Produção
+</h1>
+
+<nav>
+
+<button onclick="mostrarTela('vendas')">
+<i class="fa-solid fa-file-circle-plus"></i>
+Vendas
+</button>
+
+<button onclick="mostrarTela('producao')">
+<i class="fa-solid fa-industry"></i>
+Produção
+</button>
+
+<button onclick="mostrarTela('montagem')">
+<i class="fa-solid fa-screwdriver-wrench"></i>
+Montagem
+</button>
+
+<button onclick="mostrarTela('painel')">
+<i class="fa-solid fa-tv"></i>
+Painel TV
+</button>
+
+</nav>
+
+</header>
+
+<div class="container">
+
+<!-- VENDAS -->
+
+<section id="vendas" class="tela">
+
+<h2>Novo Pedido</h2>
+
+<input id="cliente" placeholder="Cliente">
+
+<input id="produto" placeholder="Produto">
+
+<input id="quantidade" placeholder="Quantidade">
+
+<button onclick="criarPedido()">
+<i class="fa-solid fa-plus"></i>
+Criar Pedido
+</button>
+
+</section>
+
+
+<!-- PRODUÇÃO -->
+
+<section id="producao" class="tela">
+
+<h2>Pedidos em Produção</h2>
+
+<div id="listaProducao" class="cards"></div>
+
+</section>
+
+
+<!-- MONTAGEM -->
+
+<section id="montagem" class="tela">
+
+<h2>Pedidos em Montagem</h2>
+
+<div id="listaMontagem" class="cards"></div>
+
+</section>
+
+
+<!-- PAINEL -->
+
+<section id="painel" class="tela">
+
+<h2>Painel de Produção</h2>
+
+<div class="painel">
+
+<div>
+
+<h3>Produção</h3>
+
+<div id="painelProducao"></div>
+
+</div>
+
+<div>
+
+<h3>Montagem</h3>
+
+<div id="painelMontagem"></div>
+
+</div>
+
+<div>
+
+<h3>Finalizado</h3>
+
+<div id="painelFinal"></div>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

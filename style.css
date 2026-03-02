@@ -1,0 +1,84 @@
+body{
+font-family: Arial;
+margin:0;
+background:#eef3f8;
+}
+
+header{
+background:#1f4fa3;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav button{
+background:#ff9f43;
+border:none;
+padding:10px 15px;
+margin:5px;
+color:white;
+font-weight:bold;
+cursor:pointer;
+border-radius:6px;
+}
+
+.container{
+padding:20px;
+}
+
+.tela{
+display:none;
+}
+
+input{
+display:block;
+margin:10px 0;
+padding:10px;
+width:300px;
+}
+
+button{
+padding:10px;
+}
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.card{
+background:white;
+padding:15px;
+border-left:6px solid #1f4fa3;
+border-radius:6px;
+width:250px;
+box-shadow:0 3px 5px rgba(0,0,0,0.1);
+}
+
+.card h4{
+margin:0;
+}
+
+.card button{
+margin-top:10px;
+background:#ff9f43;
+border:none;
+color:white;
+padding:8px;
+cursor:pointer;
+}
+
+.painel{
+display:flex;
+gap:30px;
+}
+
+.painel div{
+background:white;
+padding:20px;
+width:30%;
+border-radius:8px;
+}
