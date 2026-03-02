@@ -13,27 +13,12 @@ document.getElementById(tela).style.display="block"
 
 mostrarTela("vendas")
 
+
 function criarPedido(){
 
 let cliente = document.getElementById("cliente").value
 let produto = document.getElementById("produto").value
 let quantidade = document.getElementById("quantidade").value
-
-let pedido = {
-
-id: Date.now(),
-
-cliente,
-
-produto,
-
-quantidade,
-
-status:"producao"
-
-}
-
-pedidos.push(pedido)
 
 fetch(API,{
 method:"POST",
@@ -43,19 +28,22 @@ produto:produto,
 quantidade:quantidade
 })
 })
-
 .then(res=>res.text())
 .then(data=>{
-console.log("Salvo no Google Sheets")
-})
 
-render()
+console.log("Salvo no Google Sheets")
+
+carregarPedidos()
+
+})
 
 document.getElementById("cliente").value=""
 document.getElementById("produto").value=""
 document.getElementById("quantidade").value=""
 
 }
+
+
 
 function carregarPedidos(){
 
@@ -69,7 +57,7 @@ id:p[0],
 cliente:p[1],
 produto:p[2],
 quantidade:p[3],
-status:p[4]
+status:(p[4] || "").toLowerCase()
 
 }))
 
@@ -78,6 +66,8 @@ render()
 })
 
 }
+
+
 
 function render(){
 
@@ -97,7 +87,7 @@ pFin.innerHTML=""
 
 pedidos.forEach(p=>{
 
-if(p.status=="producao"){
+if(p.status=="produção" || p.status=="producao"){
 
 prod.innerHTML+=cardProducao(p)
 
@@ -123,6 +113,8 @@ pFin.innerHTML+=painelCard(p)
 
 }
 
+
+
 function cardProducao(p){
 
 return `
@@ -132,7 +124,6 @@ return `
 <h4>OS ${p.id}</h4>
 
 Cliente: ${p.cliente}<br>
-
 Produto: ${p.produto}
 
 <button onclick="enviarMontagem(${p.id})">
@@ -147,6 +138,8 @@ Enviar para montagem
 
 }
 
+
+
 function cardMontagem(p){
 
 return `
@@ -156,7 +149,6 @@ return `
 <h4>OS ${p.id}</h4>
 
 Cliente: ${p.cliente}<br>
-
 Produto: ${p.produto}
 
 <button onclick="finalizar(${p.id})">
@@ -171,6 +163,8 @@ Finalizar Pedido
 
 }
 
+
+
 function painelCard(p){
 
 return `
@@ -178,7 +172,6 @@ return `
 <div>
 
 <strong>${p.cliente}</strong><br>
-
 ${p.produto}
 
 </div>
@@ -186,6 +179,8 @@ ${p.produto}
 `
 
 }
+
+
 
 function enviarMontagem(id){
 
@@ -197,6 +192,8 @@ render()
 
 }
 
+
+
 function finalizar(id){
 
 let p = pedidos.find(x=>x.id==id)
@@ -207,5 +204,5 @@ render()
 
 }
 
-carregarPedidos()
 
+carregarPedidos()
