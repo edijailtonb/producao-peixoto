@@ -57,6 +57,28 @@ document.getElementById("quantidade").value=""
 
 }
 
+function carregarPedidos(){
+
+fetch(API)
+.then(res=>res.json())
+.then(data=>{
+
+pedidos = data.map(p=>({
+
+id:p[0],
+cliente:p[1],
+produto:p[2],
+quantidade:p[3],
+status:p[4]
+
+}))
+
+render()
+
+})
+
+}
+
 function render(){
 
 let prod = document.getElementById("listaProducao")
@@ -184,3 +206,5 @@ p.status="final"
 render()
 
 }
+
+carregarPedidos()
