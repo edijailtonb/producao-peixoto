@@ -1,4 +1,4 @@
-const API = "https://script.google.com/macros/s/AKfycbxf3gmKQfMZwIqFQInmSMqkzkO2rTqvQZRUMvBG93JZQSe_Qp5D-wRnnBYM90ThsL2Y/exec"
+const API = "https://script.google.com/macros/s/AKfycbw0nVXN4pVR5FAiNjZQznoEoJ3skTKX2VUYGA-FWH5IQ-QbRlKbZ-KEdDoD8gbO_bd7/exec"
 
 let pedidos = []
 
@@ -208,3 +208,4 @@ render()
 }
 
 carregarPedidos()
+
